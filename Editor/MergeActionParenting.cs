@@ -64,12 +64,13 @@ namespace GitMerge
 
             var c = GUI.backgroundColor;
             GUI.backgroundColor = Color.white;
-            var newParent = EditorGUILayout.ObjectField(transform.parent, typeof(Transform), true, GUILayout.Width(170)) as Transform;
-            if(newParent != transform.parent)
-            {
-                transform.parent = newParent;
-                UsedNew();
-            }
+			if (transform != null) {
+				var newParent = EditorGUILayout.ObjectField (transform.parent, typeof(Transform), true, GUILayout.Width (170)) as Transform;
+				if (newParent != transform.parent) {
+					transform.parent = newParent;
+					UsedNew ();
+				}
+			}
             GUI.backgroundColor = c;
 
             if(MergeButton("<<<", usingTheirs))
